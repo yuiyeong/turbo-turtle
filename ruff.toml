@@ -1,0 +1,66 @@
+line-length = 88  # Black 기본값
+target-version = "py311"
+
+unsafe-fixes = true      # 자동 수정 허용
+show-fixes = true       # 적용된 수정사항 표시
+
+# 파일 제외 설정 확장
+extend-exclude = [
+    "migrations",
+    "__pycache__",
+    ".git",
+]
+
+[format]
+quote-style = "double"
+indent-style = "space"
+skip-magic-trailing-comma = false
+line-ending = "lf"
+
+[lint]
+select = [
+    "E", # pycodestyle 에러 (PEP8)
+    "W", # pycodestyle 경고 (PEP8)
+    "F", # pyflakes
+    "I", # isort
+    "N", # pep8-naming
+
+    "B", # flake8-bugbear: 버그 찾기에 유용
+    "DJ", # flake8-django: Django 특화 규칙
+    "RET", # flake8-return: return 문 관련 검사
+    "SIM", # flake8-simplify: 코드 단순화 제안
+    "UP", # pyupgrade: 최신 Python 문법 사용 권장
+    "PT", # flake8-pytest-style: pytest 스타일 가이드
+
+    "ANN", # flake8-annotations: 타입 어노테이션 체크
+    "TCH", # flake8-type-checking: 타입 체킹 관련
+    "FA", # flake8-future-annotations
+    "PYI", # flake8-pyi: 타입 스텁 파일 체크
+]
+
+# isort 설정
+[lint.isort]
+force-single-line = true  # import 문을 한 줄로 작성
+lines-between-types = 1   # import 그룹 사이 빈 줄 추가
+
+# 파일별 예외 규칙
+[lint.extend-per-file-ignores]
+"**/__init__.py" = [
+    "F401",
+    "F403"
+]
+"**/manage.py" = [
+    "ANN",
+]
+"**/settings.py" = [
+    "E501",
+]
+"**/settings/*.py" = [
+    "E501",
+    "F403",
+    "F405",
+]
+"tests/**" = [
+    "E501",
+    "ANN",
+]

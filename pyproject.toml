@@ -1,0 +1,31 @@
+[project]
+name = "turbo-turtle"
+version = "0.1.0"
+description = ""
+authors = [
+    { name = "yuiyeong", email = "joyuiyeong@gmail.com" }
+]
+readme = "README.md"
+requires-python = ">=3.11"
+dependencies = [
+    "django (>=4.2,<5.0)",
+    "django-redis (>=5.4.0,<6.0.0)",
+    "djangorestframework (>=3.15.2,<4.0.0)",
+    "psycopg2-binary (>=2.9.10,<3.0.0)",
+    "python-dotenv (>=1.0.1,<2.0.0)",
+    "celery (>=5.4.0,<6.0.0)",
+    "gunicorn (>=23.0.0,<24.0.0)"
+]
+
+[tool.poetry.group.dev.dependencies]
+ruff = "^0.9.7"
+pytest = "^8.3.4"
+pre-commit = "^4.1.0"
+django-debug-toolbar = "^5.0.1"
+
+[tool.poetry]
+package-mode = false
+
+[build-system]
+requires = ["poetry-core>=2.0.0,<3.0.0"]
+build-backend = "poetry.core.masonry.api"
